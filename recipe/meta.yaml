@@ -6,23 +6,23 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/laserbeamsize-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/laserbeamsize-{{ version }}.tar.gz
   sha256: 71a01d08255b7f893b83dabe5dbddde425f0ca5738d5f8109375e79b4a6ff1a0
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
     - matplotlib-base
     - numpy
     - pillow
-    - python >=3.6
+    - python >={{ python_min }}
     - scipy
     - pytest
     - requests
@@ -34,6 +34,7 @@ test:
   requires:
     - pytest
     - pip
+    - python {{ python_min }}
   source_files:
     - tests/test_no_noise.py
   commands:
