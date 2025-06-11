@@ -1,5 +1,5 @@
 {% set name = "laserbeamsize" %}
-{% set version = "2.0.5" %}
+{% set version = "2.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/laserbeamsize-{{ version }}.tar.gz
-  sha256: 71a01d08255b7f893b83dabe5dbddde425f0ca5738d5f8109375e79b4a6ff1a0
+  sha256: bf95f8577a255078bea4bc24437a01c7dd702e3febc8259699db7db3d15ed10b
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -22,12 +22,9 @@ requirements:
   run:
     - matplotlib-base
     - numpy
-    - pillow
     - python >={{ python_min }}
     - scipy
     - pytest
-    - requests
-    - imageio
 
 test:
   imports:
