@@ -22,12 +22,9 @@ requirements:
   run:
     - matplotlib-base
     - numpy
-    - pillow
     - python >={{ python_min }}
     - scipy
     - pytest
-    - requests
-    - imageio
 
 test:
   imports:
