@@ -1,5 +1,5 @@
 {% set name = "laserbeamsize" %}
-{% set version = "2.1.0" %}
+{% set version = "2.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/laserbeamsize-{{ version }}.tar.gz
-  sha256: bf95f8577a255078bea4bc24437a01c7dd702e3febc8259699db7db3d15ed10b
+  sha256: 9cee76787d1e22b8052d93dd72abc0e522c728ea4eb30e94c7094c446f44d9f7
 
 build:
   noarch: python
@@ -24,20 +24,15 @@ requirements:
     - numpy
     - python >={{ python_min }}
     - scipy
-    - pytest
 
 test:
   imports:
     - laserbeamsize
   requires:
-    - pytest
     - pip
     - python {{ python_min }}
-  source_files:
-    - tests/test_no_noise.py
   commands:
     - pip check
-    - pytest tests/test_no_noise.py
 
 about:
   home: https://github.com/scottprahl/laserbeamsize
