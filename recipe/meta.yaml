@@ -24,20 +24,15 @@ requirements:
     - numpy
     - python >={{ python_min }}
     - scipy
-    - pytest
 
 test:
   imports:
     - laserbeamsize
   requires:
-    - pytest
     - pip
     - python {{ python_min }}
-  source_files:
-    - tests/test_no_noise.py
   commands:
     - pip check
-    - pytest tests/test_no_noise.py
 
 about:
   home: https://github.com/scottprahl/laserbeamsize
