@@ -1,5 +1,5 @@
 {% set name = "laserbeamsize" %}
-{% set version = "2.3.0" %}
+{% set version = "2.3.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/laserbeamsize-{{ version }}.tar.gz
-  sha256: ef794a7571ac4fa67c7489ca895a3a5d7e197cc50f78e951fb625377c732ae9a
+  sha256: 8df0930c3febec3bb762ae4f481f92a6820cde596923c23a54b9ecc95a71aca4
 
 build:
   noarch: python
