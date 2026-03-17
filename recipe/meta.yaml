@@ -1,5 +1,6 @@
 {% set name = "laserbeamsize" %}
-{% set version = "2.4.0" %}
+{% set version = "2.4.1" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,18 +8,19 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/laserbeamsize-{{ version }}.tar.gz
-  sha256: 753178483f189cd37c1f0641f43b7bd657b24e4c720201a832351110b7c94c1f
+  sha256: 3cc122f468a284b98b078a5307820a2bc924bba4b8b2ede1909f4348d6c36f2e
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
     - pip
     - python {{ python_min }}
-    - setuptools
+    - setuptools >=77
+    - wheel
   run:
     - matplotlib-base
     - numpy
@@ -33,16 +35,15 @@ test:
     - python {{ python_min }}
   commands:
     - pip check
+    - python -c "import laserbeamsize as lbs; beam = lbs.create_test_image(100, 100, 50, 50, 20, 10, 0); result = lbs.beam_size(beam); assert result[3] is not None"
 
 about:
   home: https://github.com/scottprahl/laserbeamsize
-  summary: |
-    Estimation of beam sizes using the ISO 11146 method and estimates of M² values.
+  summary: ISO 11146 calculation of laser beam center, diameter, and M²
 
   license: MIT
   license_family: MIT
-  license_file:
-    - LICENSE.txt
+  license_file: LICENSE.txt
   doc_url: https://laserbeamsize.readthedocs.io/
   dev_url: https://github.com/scottprahl/laserbeamsize
 
