@@ -7,8 +7,7 @@ Home: https://github.com/scottprahl/laserbeamsize
 
 Package license: MIT
 
-Summary: Estimation of beam sizes using the ISO 11146 method and estimates of M² values.
-
+Summary: ISO 11146 calculation of laser beam center, diameter, and M²
 
 Development: https://github.com/scottprahl/laserbeamsize
 
@@ -18,10 +17,11 @@ Current build status
 ====================
 
 
-<table><tr><td>All platforms:</td>
+<table><tr>
+    <td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=20338&branchName=main">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/laserbeamsize-feedstock?branchName=main">
+      <a href="https://github.com/conda-forge/laserbeamsize-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/laserbeamsize-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
       </a>
     </td>
   </tr>
